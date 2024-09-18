@@ -1,4 +1,5 @@
 package personnages;
+
 import lieux.Village;
 
 public class Chef {
