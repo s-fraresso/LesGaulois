@@ -25,13 +25,7 @@ public class Village {
 	}
 	
 	public Gaulois trouverHabitant(int numVillageois) {
-		if (numVillageois < nbVillageois) {
-			return villageois[numVillageois];
-		}
-		else {
-			System.out.println("Le villageois recherché n'existe pas.");
-			return null;
-		}
+		return villageois[numVillageois];
 	}
 	
 	public void setChef(Chef chef) {
@@ -40,5 +34,20 @@ public class Village {
 	
 	public String getNom() {
 		return nom;
+	}
+	
+	public static void main(String[] args) {
+		Village village = new Village("Village des Irréductibles", 30);
+//		Gaulois gaulois = village.trouverHabitant(30);
+//		on obtient cette exception car on essaye d'accéder au 31ème élément d'un tableau de 30 éléments
+//		message de levée d'exception : Index 30 out of bounds for length 30
+		Chef abraracourcix = new Chef("Abraracourcix", 6, village);
+		village.setChef(abraracourcix);
+		Gaulois asterix = new Gaulois("Astérix", 6);
+		village.ajouterHabitant(asterix);
+//		Gaulois gaulois = village.trouverHabitant(1);
+//		System.out.println(gaulois);
+//		On obtient null car Astérix est le seul villageois, le deuxième élément de la liste n'existe pas.
+		
 	}
 }
