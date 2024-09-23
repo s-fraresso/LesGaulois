@@ -30,7 +30,7 @@ public class Village {
 		}
 		else {
 			System.out.println("Le villageois recherché n'existe pas.");
-			return void;
+			return null;
 		}
 	}
 	
