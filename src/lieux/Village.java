@@ -1,5 +1,7 @@
 package lieux;
 
+import java.util.Iterator;
+
 import personnages.Chef;
 import personnages.Gaulois;
 
@@ -32,6 +34,14 @@ public class Village {
 		this.chef = chef;
 	}
 	
+	public void afficherVillageois() {
+		System.out.println("Dans " + nom + " du chef " + chef.getNom() +
+				" vivent les légendaires gaulois :");
+		for (int i = 0; i < nbVillageois; i++) {
+			System.out.println("- " + this.trouverHabitant(i).getNom());
+		}
+	}
+	
 	public String getNom() {
 		return nom;
 	}
@@ -48,6 +58,8 @@ public class Village {
 //		Gaulois gaulois = village.trouverHabitant(1);
 //		System.out.println(gaulois);
 //		On obtient null car Astérix est le seul villageois, le deuxième élément de la liste n'existe pas.
-		
+		Gaulois obelix = new Gaulois("Obélix", 25);
+		village.ajouterHabitant(obelix);
+		village.afficherVillageois();
 	}
 }
