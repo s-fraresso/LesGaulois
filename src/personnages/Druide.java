@@ -3,6 +3,8 @@ package personnages;
 import java.util.Random;
 
 public class Druide {
+	private Random random = new Random();
+	
 	private String nom;
 	private int effetPotionMin;
 	private int effetPotionMax;
@@ -30,7 +32,6 @@ public class Druide {
 	}
 	
 	public void preparerPotion() {
-		Random random = new Random();
 		forcePotion = random.nextInt(effetPotionMin, effetPotionMax + 1);
 		if (forcePotion > 7) {
 			parler("J'ai préparé une super potion de force " + forcePotion + " !");
@@ -41,7 +42,7 @@ public class Druide {
 	}
 	
 	public void booster(Gaulois gaulois) {
-		if (gaulois.getNom() == "Obélix") {
+		if ("Obélix".equals(gaulois.getNom())) {
 			parler("Non, Obélix !... Tu n'auras pas de potion magique !");
 		} else {
 			gaulois.boirePotion(forcePotion);
