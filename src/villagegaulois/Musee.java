@@ -12,4 +12,16 @@ public class Musee {
 	public void donnerTrophee(Gaulois gaulois, Equipement equipement) {
 		trophees[nbTrophees++] = new Trophee(gaulois, equipement);
 	}
+	
+	public String extraireInstructionsOCaml() {
+		String instruction = "let musee = [";
+		for (int i = 0; i < nbTrophees; ++i) {
+			instruction += "\n\t\"" + trophees[i].getGaulois().getNom() + "\", \"" + trophees[i].getEquipement() + "\"";
+			if (i < nbTrophees - 1) {
+				instruction += ";";
+			}
+		}
+		instruction += "\n]";
+		return instruction;
+	}
 }
