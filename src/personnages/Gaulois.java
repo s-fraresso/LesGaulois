@@ -1,5 +1,7 @@
 package personnages;
 
+import villagegaulois.Musee;
+
 public class Gaulois {
 	private String nom;
 	private int force;
@@ -36,6 +38,26 @@ public class Gaulois {
 	public void boirePotion(int forcePotion) {
 		effetPotion = forcePotion;
 		parler("Merci Druide, je sens que ma force est " + forcePotion + " fois décuplée.");
+	}
+	
+	public void faireUneDonation(Musee musee) {
+		if (nbTrophees == 0) {
+			parler("Je n'ai aucun trophée à donner.");
+		}
+		else {
+			parler("Je donne au musée tous mes trophées : " + listerTrophees());
+			for (int i = 0; i < nbTrophees; ++i) {
+				musee.donnerTrophee(this, trophees[i]);
+			}
+		}
+	}
+	
+	private String listerTrophees() {
+		String listeTrophees = "";
+		for (int i = 0; i < nbTrophees; ++i) {
+			listeTrophees += "\n- " + trophees[i];
+		}
+		return listeTrophees;
 	}
 
 	@Override
